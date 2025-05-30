@@ -1,24 +1,24 @@
 ## Getting Started
 
-First, run the development server:
+First, install the dependencies of the project:
 
 ```bash
 npm i
 ```
 
-And them:
+And them run the development server:
 
 ```bash
 npm run dev
 ```
 
-## apply the schema to the database
+## Apply the schema to the Database
 
 ```bash
 npx drizzle-kit push
 ```
 
-## drizzle studio
+## Drizzle Studio
 
 ```bash
 npx drizzle-kit studio

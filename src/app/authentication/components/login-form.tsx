@@ -1,7 +1,6 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Loader2 } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -40,10 +39,14 @@ const LoginForm = () => {
     },
   });
 
+  function onSubmit(values: z.infer<typeof loginSchema>) {
+    console.log(values);
+  }
+
   return (
     <Card>
       <Form {...form}>
-        <form className="space-y-4">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
           <CardHeader>
             <CardTitle>Login</CardTitle>
             <CardDescription>Faça login para continuar.</CardDescription>
@@ -81,19 +84,9 @@ const LoginForm = () => {
             />
           </CardContent>
           <CardFooter>
-            <div className="w-full space-y-2">
-              <Button
-                type="submit"
-                className="w-full"
-                disabled={form.formState.isSubmitting}
-              >
-                {form.formState.isSubmitting ? (
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                ) : (
-                  "Entrar"
-                )}
-              </Button>
-            </div>
+            <Button type="submit" className="w-full">
+              Entrar
+            </Button>
           </CardFooter>
         </form>
       </Form>
